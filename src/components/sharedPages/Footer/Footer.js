@@ -34,9 +34,9 @@ const Footer = () => {
                         <h4>FOLLOW US</h4>
                         <div className='underline'></div>
                         <ui className="list-unstyled">
-                            <li className='mb-1'><img src={facebook} /> FACEBOOK</li>
-                            <li className='mb-1'><img src={insta} /> INSTAGRAM</li>
-                            <li className='mb-1'><img src={twitter} /> TWITTER</li>
+                            <li className='mb-1'><img src={facebook} className='social-icon' /> FACEBOOK</li>
+                            <li className='mb-1'><img src={insta} className='social-icon' /> INSTAGRAM</li>
+                            <li className='mb-1'><img src={twitter} className='social-icon' /> TWITTER</li>
                         </ui>
                     </div>
                 </div>

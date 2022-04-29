@@ -19,7 +19,7 @@
     background-image: linear-gradient(white, gray);
 }
 
-img {
+.social-icon {
     filter: invert(1);
     height: 25px;
     width: 25px;

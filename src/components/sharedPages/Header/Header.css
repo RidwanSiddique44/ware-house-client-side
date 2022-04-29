@@ -1,0 +1,10 @@
+.nav-bar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-icon {
+    width: 20%;
+    margin-bottom: 5%;
+}
