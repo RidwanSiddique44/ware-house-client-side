@@ -101,12 +101,12 @@ const Extra = () => {
                             <label className="form-label">Email address</label>
                             <input type="email" className="form-control" placeholder="Enter your email" />
                         </div>
-                        <div classname="mb-3">
+                        <div className="mb-3">
                             <label className="form-label">Message:</label>
                             <textarea className="form-control" rows="3"></textarea>
                         </div>
-                        <div classname="col-12 mb-3">
-                            <button type="submit" classname="btn btn-primary">SEND MESSAGE</button>
+                        <div className="col-12 mb-3">
+                            <button type="submit" className="btn btn-primary">SEND MESSAGE</button>
                         </div>
                     </div>
                 </div>
