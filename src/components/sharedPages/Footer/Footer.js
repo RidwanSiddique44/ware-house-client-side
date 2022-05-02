@@ -23,21 +23,21 @@ const Footer = () => {
                     <div className="col">
                         <h4>PRODUCTS</h4>
                         <div className='underline'></div>
-                        <ui className="list-unstyled">
+                        <div className="list-unstyled">
                             <li>ELECTRONIX</li>
                             <li>OTHER STUFF</li>
                             <li>ELECTRIC STUFF</li>
-                        </ui>
+                        </div>
                     </div>
                     {/* Column3 */}
                     <div className="col">
                         <h4>FOLLOW US</h4>
                         <div className='underline'></div>
-                        <ui className="list-unstyled">
+                        <div className="list-unstyled">
                             <li className='mb-1'><img src={facebook} className='social-icon' /> FACEBOOK</li>
                             <li className='mb-1'><img src={insta} className='social-icon' /> INSTAGRAM</li>
                             <li className='mb-1'><img src={twitter} className='social-icon' /> TWITTER</li>
-                        </ui>
+                        </div>
                     </div>
                 </div>
                 <hr />

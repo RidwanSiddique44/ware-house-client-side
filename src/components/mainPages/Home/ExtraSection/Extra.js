@@ -98,15 +98,15 @@ const Extra = () => {
                     <p className='ms-5'>WE ARE HAPPY TO HEAR FROM YOU. YOUR SUGGESTIONS WILL IMPROVE OUR MARKETPLACE THE BEST</p>
                     <div className="ms-5">
                         <div className="mb-3">
-                            <label for="exampleFormControlInput1" className="form-label">Email address</label>
-                            <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="Enter your email" />
+                            <label className="form-label">Email address</label>
+                            <input type="email" className="form-control" placeholder="Enter your email" />
                         </div>
-                        <div class="mb-3">
-                            <label for="exampleFormControlTextarea1" className="form-label">Message:</label>
-                            <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <div classname="mb-3">
+                            <label className="form-label">Message:</label>
+                            <textarea className="form-control" rows="3"></textarea>
                         </div>
-                        <div class="col-12 mb-3">
-                            <button type="submit" class="btn btn-primary">SEND MESSAGE</button>
+                        <div classname="col-12 mb-3">
+                            <button type="submit" classname="btn btn-primary">SEND MESSAGE</button>
                         </div>
                     </div>
                 </div>

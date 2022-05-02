@@ -17,7 +17,7 @@ const Header = () => {
                         <Nav className="ms-auto  fw-bolder">
                             <Nav.Link as={Link} to="/home">Home</Nav.Link>
                             <Nav.Link as={Link} to="/blog">Blogs</Nav.Link>
-                            <Nav.Link as={Link} to="/blog">About</Nav.Link>
+                            <Nav.Link as={Link} to="/signup">Sign In</Nav.Link>
                             <Nav.Link as={Link} to="/kala">NotFound</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
