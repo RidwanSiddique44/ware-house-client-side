@@ -30,12 +30,12 @@ const SignIn = () => {
     if (user) {
         navigate(from, { replace: true });
     }
-    const [sendResetEmail, sending] = useSendPasswordResetEmail(auth);
     let errorText;
     if (error) {
         errorText = <p className='text-danger'>Error: {error?.message}</p>
         toast(errorText);
     }
+    const [sendResetEmail, sending] = useSendPasswordResetEmail(auth);
     if (loading || sending) {
         return <Loading></Loading>
     }

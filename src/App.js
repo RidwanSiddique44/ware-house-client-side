@@ -10,6 +10,8 @@ import Blogs from './components/mainPages/Blogs/Blogs';
 import Footer from './components/sharedPages/Footer/Footer';
 import Loading from './components/sharedPages/Loading/Loading';
 import RequireAuth from './components/registerPages/RequireAuth/RequireAuth';
+import Inventory from './components/mainPages/Inventory/Inventory';
+import Details from './components/mainPages/ProductDetails/Details';
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
         <Route path="/signup" element={<SignUp></SignUp>}></Route>
         <Route path="/loading" element={<Loading></Loading>}></Route>
         <Route path="*" element={<Notfound></Notfound>}></Route>
+        <Route path='/inventory' element={<Inventory></Inventory>}></Route>
+        <Route path='/inventory/:inventoryId' element={<Details></Details>}></Route>
         <Route path="/blog" element={
           <RequireAuth>
             <Blogs></Blogs>

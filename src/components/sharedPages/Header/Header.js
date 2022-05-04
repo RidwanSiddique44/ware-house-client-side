@@ -24,6 +24,7 @@ const Header = () => {
                         <Nav className="ms-auto  fw-bolder">
                             <Nav.Link as={Link} to="/home">Home</Nav.Link>
                             <Nav.Link as={Link} to="/blog">Blogs</Nav.Link>
+                            <Nav.Link as={Link} to="/inventory">Manage-Items</Nav.Link>
                             <Nav.Link as={Link} to="/lkl">Found</Nav.Link>
                         </Nav>
                         <Nav>
