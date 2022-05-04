@@ -4,7 +4,7 @@ import { Button, Card } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
 const SampleProducts = (props) => {
-    const { id, name, description, price, image } = props.product;
+    const { _id, name, description, price, image } = props.product;
     const navigate = useNavigate();
 
     const navigateToDetails = id => {
@@ -25,7 +25,7 @@ const SampleProducts = (props) => {
                             <span className='fw-bolder'>Description:</span>
                             {description}
                         </Card.Text>
-                        <Button onClick={() => navigateToDetails(id)} variant="primary">Details</Button>
+                        <Button onClick={() => navigateToDetails(_id)} variant="primary">Details</Button>
                     </Card.Body>
                 </Card>
             </div>

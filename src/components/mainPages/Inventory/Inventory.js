@@ -9,7 +9,7 @@ const Inventory = () => {
             <div className=' container review-container'>
 
                 {
-                    products.map(product => <AllProducts key={product.id} product={product} ></AllProducts>)
+                    products.map(product => <AllProducts key={product._id} product={product} ></AllProducts>)
                 }
             </div>
         </div>

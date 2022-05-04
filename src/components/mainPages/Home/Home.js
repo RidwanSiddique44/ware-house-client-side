@@ -16,7 +16,7 @@ const Home = () => {
             <div className=' container review-container'>
 
                 {
-                    products.slice(0, 6).map(product => <SampleProducts key={product.id} product={product} ></SampleProducts>)
+                    products.slice(0, 6).map(product => <SampleProducts key={product._id} product={product} ></SampleProducts>)
                 }
             </div>
             {/*------------ extra section -------------- */}
