@@ -12,7 +12,7 @@ const Details = () => {
             .then(data => setItem(data))
     }, []);
     return (
-        <div className='card-container'>
+        <div className='container'>
             <div>
 
                 <Card style={{ width: '100%' }}>

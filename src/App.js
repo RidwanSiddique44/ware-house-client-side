@@ -12,6 +12,7 @@ import Loading from './components/sharedPages/Loading/Loading';
 import RequireAuth from './components/registerPages/RequireAuth/RequireAuth';
 import Inventory from './components/mainPages/Inventory/Inventory';
 import Details from './components/mainPages/ProductDetails/Details';
+import AddProducts from './components/mainPages/AddProducts/AddProducts';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route path="/loading" element={<Loading></Loading>}></Route>
         <Route path="*" element={<Notfound></Notfound>}></Route>
         <Route path='/inventory' element={<Inventory></Inventory>}></Route>
+        <Route path='/addproduct' element={<AddProducts></AddProducts>}></Route>
         <Route path='/inventory/:inventoryId' element={<Details></Details>}></Route>
         <Route path="/blog" element={
           <RequireAuth>
