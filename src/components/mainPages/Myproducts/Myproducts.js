@@ -1,10 +1,17 @@
-import React from 'react';
-import './Inventory.css';
+import React, { useEffect, useState } from 'react';
 import { Button, Card } from 'react-bootstrap';
-import useProducts from '../../Hooks/useProducts';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../../firebase.init';
 
-const Inventory = () => {
-    const [products, setProducts] = useProducts();
+const Myproducts = () => {
+    const [user] = useAuthState(auth);
+    const [myproducts, setMyproducts] = useState([]);
+    useEffect(() => {
+        const email = user?.email;
+        fetch(`http://localhost:5000/useritems?email=${email}`)
+            .then(res => res.json())
+            .then(data => setMyproducts(data))
+    }, [user]);
     const handleDelete = id => {
         const confirm = window.confirm('Are you sure to detele it?');
         if (confirm) {
@@ -15,18 +22,17 @@ const Inventory = () => {
                 .then(res => res.json())
                 .then(data => {
                     console.log(data)
-                    const remainingProducts = products.filter(item => item._id !== id);
-                    setProducts(remainingProducts)
+                    const remainingProducts = myproducts.filter(item => item._id !== id);
+                    setMyproducts(remainingProducts)
                 })
         }
     }
-
     return (
         <div className='my-5 py-5 inv-div '>
             <div className=' container inventory-style'>
 
                 {
-                    products.map(product =>
+                    myproducts.map(product =>
                         <div key={product._id} className='card-container h-100'>
                             <div className='w-100'>
 
@@ -54,4 +60,4 @@ const Inventory = () => {
     );
 };
 
-export default Inventory;
+export default Myproducts;

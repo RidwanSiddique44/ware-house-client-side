@@ -10,7 +10,14 @@
 }
 
 .inventory-style {
+    height: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2%;
+}
+
+@media only screen and (max-width:700px) {
+    .inventory-style {
+        grid-template-columns: 1fr;
+    }
 }

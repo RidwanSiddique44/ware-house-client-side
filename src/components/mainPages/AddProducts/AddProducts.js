@@ -1,8 +1,12 @@
 import React from 'react';
 import './AddProducts.css';
 import { useForm } from "react-hook-form";
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../../firebase.init';
+
 
 const AddProducts = () => {
+    const [user] = useAuthState(auth);
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
         const url = `http://localhost:5000/products`;
@@ -23,10 +27,12 @@ const AddProducts = () => {
             <h3 className="text-center">Add Products</h3>
             <hr className="bg-danger" />
             <form className='d-flex flex-column' onSubmit={handleSubmit(onSubmit)}>
+                <label>User Email</label>
+                <input placeholder='Email' className='mb-3' value={user?.email}  {...register("email", { required: true, maxLength: 200 })} />
                 <label>Product Name</label>
-                <input placeholder='Name' className='mb-3'  {...register("name", { required: true, maxLength: 20 })} />
+                <input placeholder='Name' className='mb-3'  {...register("name", { required: true, maxLength: 100 })} />
                 <label>Supplier Name</label>
-                <input placeholder='Supplier' className='mb-3'  {...register("supplier", { required: true, maxLength: 20 })} />
+                <input placeholder='Supplier' className='mb-3'  {...register("supplier", { required: true, maxLength: 100 })} />
                 <label>Product Image</label>
                 <input placeholder='Photo url' className='mb-3'  {...register("image")} />
                 <label>Product Quantity</label>

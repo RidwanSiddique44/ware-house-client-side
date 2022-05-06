@@ -12,9 +12,9 @@ const SampleProducts = (props) => {
     }
     return (
         <div className='card-container'>
-            <div>
+            <div className='w-100 h-100'>
 
-                <Card style={{ width: '100%' }}>
+                <Card style={{ width: '100%', height: '100%' }}>
                     <Card.Img className='card-img' style={{ width: '100%' }} variant="top" src={image} />
                     <Card.Body>
                         <Card.Title>{name}</Card.Title>
