@@ -7,6 +7,7 @@ import Loading from '../../sharedPages/Loading/Loading';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import GoogleSignin from '../Social/GoogleSignin';
+import useToken from '../../Hooks/useToken';
 
 const SignUp = () => {
     const navigate = useNavigate();
@@ -24,8 +25,9 @@ const SignUp = () => {
         navigate('/home');
     }
     const location = useLocation();
+    const [token, setToken] = useToken(user);
     let from = location.state?.from?.pathname || "/";
-    if (user) {
+    if (token) {
         navigate(from, { replace: true });
     }
     if (loading) {

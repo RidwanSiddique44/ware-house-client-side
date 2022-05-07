@@ -25,7 +25,7 @@ const SampleProducts = (props) => {
                             </Card.Text></div>
 
                         <Card.Text>
-                            <span className='fw-bolder'>Description:</span>
+                            <span className='fw-bolde'>Description:</span>
                             {description}
                         </Card.Text>
                         <Card.Text>

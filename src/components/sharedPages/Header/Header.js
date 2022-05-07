@@ -24,12 +24,13 @@ const Header = () => {
                         <Nav className="ms-auto  fw-bolder">
                             <Nav.Link as={Link} to="/home">Home</Nav.Link>
                             <Nav.Link as={Link} to="/blog">Blogs</Nav.Link>
-                            <Nav.Link as={Link} to="/inventory">Inventories</Nav.Link>
+                            <Nav.Link as={Link} to="/allitem">All-Product</Nav.Link>
+
                         </Nav>
                         <Nav className="fw-bolder">
                             {
                                 user && <>
-
+                                    <Nav.Link as={Link} to="/inventory">Manage-Inventories</Nav.Link>
                                     <Nav.Link as={Link} to="/addproduct">Add-Product</Nav.Link>
                                     <Nav.Link as={Link} to="/myproduct">My-Product</Nav.Link>
 

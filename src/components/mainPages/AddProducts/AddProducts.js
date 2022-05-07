@@ -24,12 +24,12 @@ const AddProducts = () => {
             })
     };
     return (
-        <div className='container border border-primary bg-light p-5 text-start mt-5 mb-5 w-75 ms-auto'>
+        <div className='container border border-primary bg-light p-5 text-start mt-5 mb-5 ms-auto add-form'>
             <h3 className="text-center">Add Products</h3>
             <hr className="bg-danger" />
             <form className='d-flex flex-column' onSubmit={handleSubmit(onSubmit)}>
                 <label>User Email</label>
-                <input placeholder='Email' className='mb-3' value={user?.email}  {...register("email", { required: true, maxLength: 200 })} />
+                <input placeholder='Email' className='mb-3' value={user?.email}  {...register("email", { required: true, maxLength: 200 })} disabled readOnly />
                 <label>Product Name</label>
                 <input placeholder='Name' className='mb-3'  {...register("name", { required: true, maxLength: 100 })} />
                 <label>Supplier Name</label>
@@ -42,7 +42,7 @@ const AddProducts = () => {
                 <input placeholder='Price' className='mb-3' type="number" {...register("price")} />
                 <label>Product Description</label>
                 <textarea placeholder='Description' className='mb-3'  {...register("description")} />
-                <input className='mb-3 bg-info py-2 text-dark fw-bolder' type="submit" />
+                <input className='mb-3 bg-info py-2 text-light fs-5 fw-bolder' type="submit" />
             </form>
         </div>
     );

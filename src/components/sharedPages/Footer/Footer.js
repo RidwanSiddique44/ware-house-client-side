@@ -24,9 +24,9 @@ const Footer = () => {
                         <h4>PRODUCTS</h4>
                         <div className='underline'></div>
                         <div className="list-unstyled">
-                            <li>ELECTRONIX</li>
-                            <li>OTHER STUFF</li>
-                            <li>ELECTRIC STUFF</li>
+                            <li>ELECTRONICS</li>
+                            <li>ELECTRIC GADGETS</li>
+                            <li>OTHER ELECTRIC STUFF</li>
                         </div>
                     </div>
                     {/* Column3 */}

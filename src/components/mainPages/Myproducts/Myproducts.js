@@ -1,17 +1,34 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowAltCircleRight } from '@fortawesome/free-solid-svg-icons'
+import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { Button, Card } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
+import axiosPrivate from '../../AxiosPrivate/axiosPrivate';
 
 const Myproducts = () => {
     const [user] = useAuthState(auth);
     const [myproducts, setMyproducts] = useState([]);
+    const navigate = useNavigate();
     useEffect(() => {
-        const email = user?.email;
-        fetch(`http://localhost:5000/useritems?email=${email}`)
-            .then(res => res.json())
-            .then(data => setMyproducts(data))
-    }, [user]);
+        const myProducts = async () => {
+            const email = user?.email;
+            const url = `http://localhost:5000/useritems?email=${email}`;
+            try {
+                const { data } = await axiosPrivate.get(url);
+                setMyproducts(data);
+            }
+            catch (error) {
+                if (error.response.status === 401 || error.response.status === 403) {
+                    signOut(auth);
+                    navigate('/signin')
+                }
+            }
+        }
+        myProducts();
+    }, [user])
     const handleDelete = id => {
         const confirm = window.confirm('Are you sure to detele it?');
         if (confirm) {
@@ -63,6 +80,7 @@ const Myproducts = () => {
                     )
                 }
             </div>
+            <div className="ms-auto"> <Button className=' px-5 py-1 all-btn' variant="light border border-3 border-primary"><Link to="/inventory" className='fw-bolder text-decoration-none'><FontAwesomeIcon icon={faArrowAltCircleRight} /> Manage Inventories</Link></Button></div>
         </div>
     );
 };

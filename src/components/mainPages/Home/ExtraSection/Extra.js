@@ -1,11 +1,16 @@
 import React from 'react';
 import './Extra.css';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import pic1 from '../../../Images/img/camera.png';
 import pic2 from '../../../Images/img/speaker.png';
 import pic3 from '../../../Images/img/headphone.png';
 import pic4 from '../../../Images/img/earbud.png';
 
 const Extra = () => {
+    const sendMessage = () => {
+        toast('Thank you for your valuable words...')
+    }
     return (
         <div className='container mt-5'>
             <h3 className="fw-bolder" style={{ color: 'Highlight' }}>TRENDING PRODUCTS OF THE WEEK</h3>
@@ -14,13 +19,13 @@ const Extra = () => {
                 <div className='m-2'>
                     <div className="card mb-3 shadow-lg border border-danger" style={{ width: "100%" }}>
                         <div className="row g-2">
-                            <div className="col-md-4">
+                            <div className="col-md-4 extra">
                                 <img src={pic1} className="img-fluid rounded-start h-100" />
                             </div>
                             <div className="col-md-8">
                                 <div className="card-body">
                                     <h5 className="card-title">CANNON EOS </h5>
-                                    <p className="card-text">Canon EOS (Electro-Optical System) is an autofocus single-lens reflex camera (SLR) and mirrorless camera series produced by Canon Inc. Introduced in 1987 with the Canon EOS 650, all EOS cameras used 35 mm film until October 1996 when the EOS IX was released using the new and short-lived APS film.</p>
+                                    <p className="card-text">Canon EOS (Electro-Optical System) is an autofocus single-lens reflex camera (SLR) and mirrorless camera series produced by Canon Inc.All EOS cameras used 35 mm film until October 1996 when the EOS IX was released using the new and short-lived APS film.</p>
                                     <p className="card-text"><small className="text-muted">Only 120 products are available in the stock.</small></p>
                                 </div>
                             </div>
@@ -30,7 +35,7 @@ const Extra = () => {
                 <div className='m-2'>
                     <div className="card mb-3 shadow-lg border border-danger" style={{ width: "100%" }}>
                         <div className="row g-2">
-                            <div className="col-md-4">
+                            <div className="col-md-4 extra">
                                 <img src={pic2} className="img-fluid rounded-start h-100" />
                             </div>
                             <div className="col-md-8">
@@ -46,7 +51,7 @@ const Extra = () => {
                 <div className='m-2'>
                     <div className="card mb-3 shadow-lg border border-danger" style={{ width: "100%" }}>
                         <div className="row g-2">
-                            <div className="col-md-4">
+                            <div className="col-md-4 extra">
                                 <img src={pic3} className="img-fluid rounded-start h-100" />
                             </div>
                             <div className="col-md-8">
@@ -62,7 +67,7 @@ const Extra = () => {
                 <div className='m-2'>
                     <div className="card mb-3 shadow-lg border border-danger" style={{ width: "100%" }}>
                         <div className="row g-2">
-                            <div className="col-md-4">
+                            <div className="col-md-4 extra">
                                 <img src={pic4} className="img-fluid rounded-start h-100" />
                             </div>
                             <div className="col-md-8">
@@ -71,7 +76,7 @@ const Extra = () => {
                                     <p className="card-text">
                                         Built-in Realtek 8763 chip and Bluetooth 5.0.
                                         7.2mm dynamic driver unit.
-                                        Comfortable to wear with silicone earbuds.Crystal clear sound quality. Easy to charge. Good wirless connection,With 90dB is enough to provide a deep and strong sound
+                                        Comfortable to wear with silicone earbuds.Crystal clear sound quality.Good wirless connection,With 90dB deep and strong sound
                                         Come with 300mAh charging dock for 12 hours of battery life.
                                     </p>
                                     <p className="card-text"><small className="text-muted">Only 420 products are available in the stock.</small></p>
@@ -114,8 +119,9 @@ const Extra = () => {
                             <textarea className="form-control" rows="3"></textarea>
                         </div>
                         <div className="col-12 mb-3">
-                            <button type="submit" className="btn btn-light border border-3 border-info fw-bolder">SEND MESSAGE</button>
+                            <button onClick={sendMessage} type="submit" className="btn btn-light border border-3 border-info fw-bolder">SEND MESSAGE</button>
                         </div>
+                        <ToastContainer></ToastContainer>
                     </div>
                 </div>
             </div>

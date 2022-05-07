@@ -12,15 +12,15 @@ const GoogleSignin = () => {
     const navigate = useNavigate();
     const location = useLocation();
 
-    if (loading || loading) {
+    if (loading) {
         return <Loading></Loading>
     }
 
-    if (error || error) {
+    if (error) {
         toast(<p className='text-danger'>Error: {error?.message} {error?.message}</p>)
     }
     let from = location.state?.from?.pathname || "/";
-    if (user || user) {
+    if (user) {
         navigate(from, { replace: true })
     }
 

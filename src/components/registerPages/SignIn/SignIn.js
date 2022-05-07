@@ -6,8 +6,8 @@ import auth from '../../../firebase.init';
 import Loading from '../../sharedPages/Loading/Loading';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import axios from 'axios';
 import GoogleSignin from '../Social/GoogleSignin';
+import useToken from '../../Hooks/useToken';
 
 const SignIn = () => {
     const [
@@ -20,19 +20,17 @@ const SignIn = () => {
     const navigateSignUp = () => {
         navigate('/signup');
     }
-    const handleSignIn = async (e) => {
+    const handleSignIn = (e) => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
-        await signInWithEmailAndPassword(email, password);
-        const { data } = await axios.post('http://localhost:5000/signin', { email });
-        console.log(data)
-
+        signInWithEmailAndPassword(email, password);
     }
     const location = useLocation();
+    const [token, setToken] = useToken(user);
 
     let from = location.state?.from?.pathname || "/";
-    if (user) {
+    if (token) {
         navigate(from, { replace: true });
     }
     let errorText;

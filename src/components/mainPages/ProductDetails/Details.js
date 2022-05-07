@@ -1,6 +1,9 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowAltCircleRight } from '@fortawesome/free-solid-svg-icons'
 import React, { useEffect, useState } from 'react';
 import { Button, Card } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import './Details.css';
 
 const Details = () => {
     const { inventoryId } = useParams();
@@ -63,7 +66,7 @@ const Details = () => {
         <div className='container'>
             <h3 className="fw-bolder mt-5" style={{ color: 'Highlight' }}>PRODUCT DETAILS </h3>
             <hr className='bg-danger' />
-            <div className='w-75 mx-auto'>
+            <div className='details-card mx-auto'>
 
                 <Card style={{ width: '100%', height: '100%' }}>
                     <Card.Img className='card-img rounded' style={{ width: '100%' }} variant="top" src={item.image} />
@@ -92,11 +95,12 @@ const Details = () => {
                     </Card.Body>
                 </Card>
             </div>
-            <div className=" m-5 p-5 text-start w-50 mx-auto">
+            <div className=" m-5 p-5 text-start mx-auto number-input">
                 <div className="text-center"><label className="form-label fs-1 fw-bolder">Product Quantity</label></div>
                 <input name="number" type="number" id='quantity-item' className="form-control mb-3" placeholder="Enter quantity of product" />
                 <button onClick={() => handleIncrease(item.quantity)} type="submit" className="btn btn-primary  w-100 mt-4 fw-bolder">Update</button>
             </div>
+            <div className="ms-auto mb-5"> <Button className=' px-5 py-1 all-btn' variant="light border border-3 border-primary"><Link to="/inventory" className='fw-bolder text-decoration-none'><FontAwesomeIcon icon={faArrowAltCircleRight} /> Manage Inventories</Link></Button></div>
         </div >
     );
 };

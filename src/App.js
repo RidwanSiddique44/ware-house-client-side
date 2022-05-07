@@ -14,6 +14,7 @@ import Inventory from './components/mainPages/Inventory/Inventory';
 import Details from './components/mainPages/ProductDetails/Details';
 import AddProducts from './components/mainPages/AddProducts/AddProducts';
 import Myproducts from './components/mainPages/Myproducts/Myproducts';
+import Allitem from './components/mainPages/Allitem/Allitem';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path="/signup" element={<SignUp></SignUp>}></Route>
         <Route path="/loading" element={<Loading></Loading>}></Route>
         <Route path='/blog' element={<Blogs></Blogs>}></Route>
+        <Route path='/allitem' element={<Allitem></Allitem>}></Route>
         <Route path="/inventory" element={
           <RequireAuth>
             <Inventory></Inventory>

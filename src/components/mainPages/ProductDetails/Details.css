@@ -1,0 +1,17 @@
+.details-card {
+    width: 75%;
+}
+
+.number-input {
+    width: 50%;
+}
+
+@media only screen and (max-width:700px) {
+    .number-input {
+        width: 100%;
+    }
+
+    .details-card {
+        width: 100%;
+    }
+}

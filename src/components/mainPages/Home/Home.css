@@ -1,4 +1,4 @@
-.review-container {
+.item-container {
     margin: 30px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -6,7 +6,7 @@
 }
 
 @media only screen and (max-width:700px) {
-    .review-container {
+    .item-container {
         grid-template-columns: 1fr;
     }
 }

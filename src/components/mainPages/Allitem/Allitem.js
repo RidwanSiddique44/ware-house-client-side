@@ -1,32 +1,15 @@
-import React from 'react';
-import './Inventory.css';
-import { Button, Card } from 'react-bootstrap';
-import useProducts from '../../Hooks/useProducts';
-import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowAltCircleRight } from '@fortawesome/free-solid-svg-icons'
+import { faArrowAltCircleRight } from '@fortawesome/free-solid-svg-icons';
+import React from 'react';
+import { Button, Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import useProducts from '../../Hooks/useProducts';
 
-const Inventory = () => {
+const Allitem = () => {
     const [products, setProducts] = useProducts();
-    const handleDelete = id => {
-        const confirm = window.confirm('Are you sure to detele it?');
-        if (confirm) {
-            const url = `http://localhost:5000/products/${id}`;
-            fetch(url, {
-                method: 'DELETE'
-            })
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data)
-                    const remainingProducts = products.filter(item => item._id !== id);
-                    setProducts(remainingProducts)
-                })
-        }
-    }
-
     return (
         <div className='my-5 py-5'>
-            <h3 className="fw-bolder" style={{ color: 'Highlight' }}>MANAGE PRODUCTS AVAILABLE IN THE STOCK</h3>
+            <h3 className="fw-bolder" style={{ color: 'Highlight' }}>ALL PRODUCTS AVAILABLE IN THE STOCK</h3>
             <hr className='bg-danger' />
             <div className=' container inventory-style py-5 my-5'>
 
@@ -52,7 +35,6 @@ const Inventory = () => {
                                         <span className='fw-bolder'>Supplier: </span>
                                         {product.supplier}
                                     </Card.Text>
-                                    <Button onClick={() => handleDelete(product._id)} variant="primary fw-bold relative-bottom">Delete</Button>
                                 </Card.Body>
                             </Card>
 
@@ -61,9 +43,9 @@ const Inventory = () => {
                     )
                 }
             </div>
-            <div className="ms-auto mb-5"> <Button className=' px-5 py-1 all-btn' variant="light border border-3 border-primary"><Link to="/addproduct" className='fw-bolder text-decoration-none'><FontAwesomeIcon icon={faArrowAltCircleRight} /> Add Products </Link></Button></div>
+            <div className="ms-auto"> <Button className=' px-5 py-1 all-btn' variant="light border border-3 border-primary"><Link to="/inventory" className='fw-bolder text-decoration-none'><FontAwesomeIcon icon={faArrowAltCircleRight} /> Manage Inventories</Link></Button></div>
         </div>
     );
 };
 
-export default Inventory;
+export default Allitem;
