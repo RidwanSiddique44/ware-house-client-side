@@ -1,0 +1,8 @@
+.line {
+    height: 2px;
+}
+
+.google-btn:hover {
+    background-color: rgb(15, 70, 221);
+    color: white;
+}

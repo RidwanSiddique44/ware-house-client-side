@@ -6,6 +6,7 @@ const Details = () => {
     const { inventoryId } = useParams();
     const [item, setItem] = useState({});
     const [newItem, setNewItem] = useState({});
+    const [sold, setSold] = useState('');
 
     useEffect(() => {
         const url = `http://localhost:5000/products/${inventoryId}`
@@ -58,26 +59,36 @@ const Details = () => {
             });
 
     };
-
     return (
         <div className='container'>
+            <h3 className="fw-bolder mt-5" style={{ color: 'Highlight' }}>PRODUCT DETAILS </h3>
+            <hr className='bg-danger' />
             <div className='w-75 mx-auto'>
 
-                <Card style={{ width: '100%' }}>
-                    <Card.Img className='card-img' style={{ width: '100%' }} variant="top" src={item.image} />
+                <Card style={{ width: '100%', height: '100%' }}>
+                    <Card.Img className='card-img rounded' style={{ width: '100%' }} variant="top" src={item.image} />
                     <Card.Body>
-                        <Card.Title>{item.name}</Card.Title>
-                        <Card.Text>
-                            <span className='fw-bolder'> quantity: {item.quantity}</span>
+                        <Card.Title className='fs-3'>{item.name}</Card.Title>
+                        <div className="d-flex justify-content-around"> <Card.Text>
+                            <span className='fw-bolder'>  <span className='fw-bolder fs-5'>Price:</span> ${item.price}</span>
                         </Card.Text>
-                        <Card.Text>
-                            <span className='fw-bolder'> Price: {item.price}</span>
-                        </Card.Text>
+                            <Card.Text>
+                                <span className='fw-bolder'>  <span className='fw-bolder fs-5'>Quantity:</span> {item.quantity}</span>
+                            </Card.Text></div>
+
                         <Card.Text>
                             <span className='fw-bolder'>Description:</span>
                             {item.description}
                         </Card.Text>
-                        <Button onClick={() => handleDecrease(item.quantity)} variant="primary">Delever</Button>
+                        <Card.Text>
+                            <span className='fw-bolder'>Supplier: </span>
+                            {item.supplier}
+                        </Card.Text>
+                        <Card.Text>
+                            <span className='fw-bolder'>Sold: </span>
+                            <span id="sold-item">3000+</span>
+                        </Card.Text>
+                        <Button onClick={() => handleDecrease(item.quantity)} variant="primary fw-bold">Delever</Button>
                     </Card.Body>
                 </Card>
             </div>

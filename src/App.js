@@ -27,16 +27,28 @@ function App() {
         <Route path="/signin" element={<SignIn></SignIn>}></Route>
         <Route path="/signup" element={<SignUp></SignUp>}></Route>
         <Route path="/loading" element={<Loading></Loading>}></Route>
-        <Route path="*" element={<Notfound></Notfound>}></Route>
-        <Route path='/inventory' element={<Inventory></Inventory>}></Route>
-        <Route path='/addproduct' element={<AddProducts></AddProducts>}></Route>
-        <Route path='/myproduct' element={<Myproducts></Myproducts>}></Route>
-        <Route path='/inventory/:inventoryId' element={<Details></Details>}></Route>
-        <Route path="/blog" element={
+        <Route path='/blog' element={<Blogs></Blogs>}></Route>
+        <Route path="/inventory" element={
           <RequireAuth>
-            <Blogs></Blogs>
+            <Inventory></Inventory>
           </RequireAuth>
         }></Route>
+        <Route path="/inventory/:inventoryId" element={
+          <RequireAuth>
+            <Details></Details>
+          </RequireAuth>
+        }></Route>
+        <Route path="/addproduct" element={
+          <RequireAuth>
+            <AddProducts></AddProducts>
+          </RequireAuth>
+        }></Route>
+        <Route path="/myproduct" element={
+          <RequireAuth>
+            <Myproducts></Myproducts>
+          </RequireAuth>
+        }></Route>
+        <Route path="*" element={<Notfound></Notfound>}></Route>
       </Routes>
       {/*---------- footer component -------------- */}
       <Footer></Footer>

@@ -14,22 +14,31 @@ const Header = () => {
     }
     return (
         <div className='nav-bar'>
-            <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
+            <Navbar collapseOnSelect expand="lg" variant="dark" className='nav'>
                 <Container>
                     <Navbar.Brand as={Link} to="/">
-                        <h4 className='fw-bolder align-middle'> <img src={warehouse} className='header-icon' /><span className='text-danger'> Stock</span>House</h4>
+                        <h4 className='fw-bolder align-middle'> <img src={warehouse} className='header-icon' /><span className='text-danger'> Gadget</span>House</h4>
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="ms-auto  fw-bolder">
                             <Nav.Link as={Link} to="/home">Home</Nav.Link>
                             <Nav.Link as={Link} to="/blog">Blogs</Nav.Link>
-                            <Nav.Link as={Link} to="/inventory">Manage-Items</Nav.Link>
-                            <Nav.Link as={Link} to="/addproduct">Add-Product</Nav.Link>
-                            <Nav.Link as={Link} to="/myproduct">My-Product</Nav.Link>
-                            <Nav.Link as={Link} to="/lkl">Found</Nav.Link>
+                            <Nav.Link as={Link} to="/inventory">Inventories</Nav.Link>
                         </Nav>
-                        <Nav>
+                        <Nav className="fw-bolder">
+                            {
+                                user && <>
+
+                                    <Nav.Link as={Link} to="/addproduct">Add-Product</Nav.Link>
+                                    <Nav.Link as={Link} to="/myproduct">My-Product</Nav.Link>
+
+
+                                </>
+                            }
+                        </Nav>
+                        <Nav className='ms-md-3'>
+
                             {
                                 user ? <Button variant="p-0"><Nav.Link className=' text-decoration-none fw-bolder' onClick={handleSignOut}>Sign Out</Nav.Link></Button> : <Button variant="p-0"><Nav.Link className='fw-bolder' as={Link} to="/signin">Sign In </Nav.Link></Button>
                             }

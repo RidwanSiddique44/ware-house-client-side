@@ -6,6 +6,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Loading from '../../sharedPages/Loading/Loading';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import GoogleSignin from '../Social/GoogleSignin';
 
 const SignUp = () => {
     const navigate = useNavigate();
@@ -37,7 +38,7 @@ const SignUp = () => {
     }
 
     return (
-        <div className='conatiner border border-danger p-5 form-section my-5 mx-auto'>
+        <div className='conatiner bg-light border border-danger p-5 form-section my-5 mx-auto'>
             <h3 className="text-center">Sign Up</h3>
             <hr className="bg-danger border border-1 border-danger" />
             <form onSubmit={handleSignup}>
@@ -53,6 +54,7 @@ const SignUp = () => {
                 <button type="submit" className="btn btn-primary  w-50 mt-4 fw-bolder">Sign Up</button>
             </form>
             <p className='text-center mt-3'>Already have an account? <Link to="/signin" className='text-primary pe-auto text-decoration-none' onClick={navigateSignIn}>Please Sign-In</Link> </p>
+            <GoogleSignin></GoogleSignin>
             <ToastContainer></ToastContainer>
         </div>
     );

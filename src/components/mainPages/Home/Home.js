@@ -12,6 +12,8 @@ const Home = () => {
         <div>
             {/*------------ banner section -------------- */}
             <Banner></Banner>
+            <h3 className="fw-bolder mt-5" style={{ color: 'Highlight' }}> PRODUCTS </h3>
+            <hr className='bg-danger' />
 
             <div className=' container review-container'>
 

@@ -6,6 +6,8 @@ import auth from '../../../firebase.init';
 import Loading from '../../sharedPages/Loading/Loading';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import axios from 'axios';
+import GoogleSignin from '../Social/GoogleSignin';
 
 const SignIn = () => {
     const [
@@ -18,11 +20,14 @@ const SignIn = () => {
     const navigateSignUp = () => {
         navigate('/signup');
     }
-    const handleSignIn = (e) => {
+    const handleSignIn = async (e) => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
-        signInWithEmailAndPassword(email, password);
+        await signInWithEmailAndPassword(email, password);
+        const { data } = await axios.post('http://localhost:5000/signin', { email });
+        console.log(data)
+
     }
     const location = useLocation();
 
@@ -52,7 +57,7 @@ const SignIn = () => {
     }
 
     return (
-        <div className='conatiner border border-danger p-5 form-section my-5 mx-auto'>
+        <div className='conatiner bg-light border border-danger p-5 form-section my-5 mx-auto'>
             <h3 className="text-center">Sign In</h3>
             <hr className="bg-danger border border-1 border-danger" />
             <form onSubmit={handleSignIn}>
@@ -64,6 +69,7 @@ const SignIn = () => {
             </form>
             <p className='text-center mt-3'>Need an account? <Link to="/signup" className='text-primary pe-auto text-decoration-none' onClick={navigateSignUp}>Please Sign-Up</Link> </p>
             <p>Forgotten Password?<button className='btn btn-link text-primary pe-auto text-decoration-none' onClick={resetPassword}>Reset Password</button> </p>
+            <GoogleSignin></GoogleSignin>
             <ToastContainer></ToastContainer>
         </div>
     );

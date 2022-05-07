@@ -43,7 +43,7 @@ const Footer = () => {
                 <hr />
                 <div className="row copyright">
                     <p className="col-sm">
-                        &copy;{new Date().getFullYear()} STOCK HOUSE | All rights reserved |
+                        &copy;{new Date().getFullYear()} GADGET HOUSE | All rights reserved |
                         Terms Of Service | Privacy
                     </p>
                 </div>

@@ -4,8 +4,8 @@ import './Notfound.css';
 
 const Notfound = () => {
     return (
-        <div className='bg-body'>
-            <h2 className='mt-5  text-danger fw-bolder'>Opps!! page not found</h2>
+        <div className='bg-body mt-5'>
+            <h2 className='mt-5 fw-bolder'>Opps!! <br /> page not found</h2>
         </div>
     );
 };

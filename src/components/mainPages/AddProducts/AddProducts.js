@@ -20,10 +20,11 @@ const AddProducts = () => {
             .then(res => res.json())
             .then(result => {
                 console.log(result)
+                alert("Product Added Successfully");
             })
     };
     return (
-        <div className='container border border-danger p-5 text-start mt-5 mb-5 w-75 ms-auto'>
+        <div className='container border border-primary bg-light p-5 text-start mt-5 mb-5 w-75 ms-auto'>
             <h3 className="text-center">Add Products</h3>
             <hr className="bg-danger" />
             <form className='d-flex flex-column' onSubmit={handleSubmit(onSubmit)}>
@@ -41,7 +42,7 @@ const AddProducts = () => {
                 <input placeholder='Price' className='mb-3' type="number" {...register("price")} />
                 <label>Product Description</label>
                 <textarea placeholder='Description' className='mb-3'  {...register("description")} />
-                <input className='mb-3 bg-danger py-2 text-light fw-bolder' type="submit" />
+                <input className='mb-3 bg-info py-2 text-dark fw-bolder' type="submit" />
             </form>
         </div>
     );
