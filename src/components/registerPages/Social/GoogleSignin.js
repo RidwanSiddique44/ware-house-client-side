@@ -34,7 +34,7 @@ const GoogleSignin = () => {
             <div>
                 <button
                     onClick={() => signInWithGoogle()}
-                    className='btn btn-light border border-3 border-secondary rounded-pill w-50 d-block mx-auto my-2 google-btn'>
+                    className='btn border border-3 border-secondary rounded-pill w-50 d-block mx-auto my-2 google-btn'>
                     <img style={{ width: '30px' }} src={googleicon} alt="" />
                     <span className='px-2 fw-bolder'>Google Sign In</span>
                 </button>

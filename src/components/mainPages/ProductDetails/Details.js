@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowAltCircleRight } from '@fortawesome/free-solid-svg-icons'
+import { faArrowAltCircleRight } from '@fortawesome/free-solid-svg-icons';
 import React, { useEffect, useState } from 'react';
 import { Button, Card } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
@@ -9,10 +9,10 @@ const Details = () => {
     const { inventoryId } = useParams();
     const [item, setItem] = useState({});
     const [newItem, setNewItem] = useState({});
-    const [sold, setSold] = useState('');
+    const [sold, setSold] = useState(510);
 
     useEffect(() => {
-        const url = `http://localhost:5000/products/${inventoryId}`
+        const url = `https://desolate-stream-08206.herokuapp.com/products/${inventoryId}`
         fetch(url)
             .then(res => res.json())
             .then(data => setItem(data))
@@ -20,7 +20,9 @@ const Details = () => {
     const handleDecrease = (newQuantity) => {
         let quantity = parseInt(newQuantity) - 1;
         const updateQuantity = { quantity };
-        const url = `http://localhost:5000/products/${inventoryId}`;
+        const soldQuantity = sold + 1;
+        setSold(soldQuantity);
+        const url = `https://desolate-stream-08206.herokuapp.com/products/${inventoryId}`;
 
         fetch(url, {
             method: "PUT",
@@ -44,7 +46,7 @@ const Details = () => {
         let quantity = parseInt(newQuantity) + addQuantity;
         const updateQuantity = { quantity };
         console.log(updateQuantity)
-        const url = `http://localhost:5000/products/${inventoryId}`;
+        const url = `https://desolate-stream-08206.herokuapp.com/products/${inventoryId}`;
 
         fetch(url, {
             method: "PUT",
@@ -73,10 +75,10 @@ const Details = () => {
                     <Card.Body>
                         <Card.Title className='fs-3'>{item.name}</Card.Title>
                         <div className="d-flex justify-content-around"> <Card.Text>
-                            <span className='fw-bolder'>  <span className='fw-bolder fs-5'>Price:</span> ${item.price}</span>
+                            <span className='fw-bolder fs-3'>  <span className='fw-bolder fs-5'>Price:</span> ${item.price}</span>
                         </Card.Text>
                             <Card.Text>
-                                <span className='fw-bolder'>  <span className='fw-bolder fs-5'>Quantity:</span> {item.quantity}</span>
+                                <span className='fw-bolder fs-3'>  <span className='fw-bolder fs-5'>Quantity:</span> {item.quantity}</span>
                             </Card.Text></div>
 
                         <Card.Text>
@@ -89,13 +91,13 @@ const Details = () => {
                         </Card.Text>
                         <Card.Text>
                             <span className='fw-bolder'>Sold: </span>
-                            <span id="sold-item">3000+</span>
+                            <span id="sold-item">{sold}</span>
                         </Card.Text>
                         <Button onClick={() => handleDecrease(item.quantity)} variant="primary fw-bold">Delever</Button>
                     </Card.Body>
                 </Card>
             </div>
-            <div className=" m-5 p-5 text-start mx-auto number-input">
+            <div className=" m-5 p-5 text-start mx-auto quantt">
                 <div className="text-center"><label className="form-label fs-1 fw-bolder">Product Quantity</label></div>
                 <input name="number" type="number" id='quantity-item' className="form-control mb-3" placeholder="Enter quantity of product" />
                 <button onClick={() => handleIncrease(item.quantity)} type="submit" className="btn btn-primary  w-100 mt-4 fw-bolder">Update</button>

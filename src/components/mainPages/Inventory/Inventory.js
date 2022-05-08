@@ -11,7 +11,7 @@ const Inventory = () => {
     const handleDelete = id => {
         const confirm = window.confirm('Are you sure to detele it?');
         if (confirm) {
-            const url = `http://localhost:5000/products/${id}`;
+            const url = `https://desolate-stream-08206.herokuapp.com/products/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

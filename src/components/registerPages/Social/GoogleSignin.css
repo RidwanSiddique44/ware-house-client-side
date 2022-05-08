@@ -2,7 +2,11 @@
     height: 2px;
 }
 
+.google-btn {
+    background-color: white;
+}
+
 .google-btn:hover {
-    background-color: rgb(15, 70, 221);
+    background-color: rgb(181, 188, 255);
     color: white;
 }

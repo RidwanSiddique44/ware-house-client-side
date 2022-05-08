@@ -15,7 +15,7 @@ const Myproducts = () => {
     useEffect(() => {
         const myProducts = async () => {
             const email = user?.email;
-            const url = `http://localhost:5000/useritems?email=${email}`;
+            const url = `https://desolate-stream-08206.herokuapp.com/useritems?email=${email}`;
             try {
                 const { data } = await axiosPrivate.get(url);
                 setMyproducts(data);
@@ -32,7 +32,7 @@ const Myproducts = () => {
     const handleDelete = id => {
         const confirm = window.confirm('Are you sure to detele it?');
         if (confirm) {
-            const url = `http://localhost:5000/products/${id}`;
+            const url = `https://desolate-stream-08206.herokuapp.com/products/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

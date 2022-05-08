@@ -16,8 +16,8 @@ const Banner = () => {
                         alt="First slide"
                     />
                     <Carousel.Caption>
-                        <h3>Head phones</h3>
-                        <p>We have populer stock of headphones.</p>
+                        <h3>HEAD-PHONES</h3>
+                        <p>Inroducing our populer collection of headphones.</p>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -28,8 +28,8 @@ const Banner = () => {
                     />
 
                     <Carousel.Caption>
-                        <h3>Smart watch</h3>
-                        <p>We have populer stock of smart watch. </p>
+                        <h3>SMART-WATCH</h3>
+                        <p>Introducing our populer collection of smart watch. </p>
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>
